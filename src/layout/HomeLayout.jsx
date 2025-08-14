@@ -29,7 +29,7 @@ const HomeLayout = () => {
             </header>
             <main className="w-11/12 mx-auto py-4 lg:grid lg:grid-cols-12 gap-4">
                 <aside className="col-span-2 hidden lg:block"><LeftNavbar newsCategory={newsCategory} /></aside>
-                <section className="col-span-7"><Outlet /></section>
+                <section className="col-span-12 md:col-span-7"><Outlet /></section>
                 <aside className="col-span-3"><RightNavbar /></aside>
             </main>
             <footer>

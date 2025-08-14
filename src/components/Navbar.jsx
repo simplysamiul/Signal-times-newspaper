@@ -1,8 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import profileImg from '../assets/user.png';
 import NewsCategory from "./shared/NewsCategory";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = ({ newsCategory }) => {
+    const {user} = useContext(AuthContext);
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -28,7 +31,8 @@ const Navbar = ({ newsCategory }) => {
                 <div>
                     <img className="w-8" src={profileImg} alt="User Profile Img" />
                 </div>
-                <button className="btn bg-gray-700 text-white">Login</button>
+                {!user && <Link to="/auth/login"><button className="btn bg-gray-700 text-white">Login</button></Link>}
+                {user && <button className="btn bg-gray-700 text-white">Log Out</button>}
             </div>
         </div>
     );

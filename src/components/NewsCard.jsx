@@ -6,7 +6,7 @@ import { FaEye, FaStar } from "react-icons/fa";
 const NewsCard = ({ news }) => {
     // expand text state
     const [isExpand, setIsExpand] = useState(false);
-    const { author, category_id, details, image_url, rating, thumbnail_url, title, total_view, _id } = news;
+    const { author, details, image_url, rating, title, total_view, _id } = news;
     const publishDate = moment(author.published_date).format("MMMM Do YYYY");
 
     return (
