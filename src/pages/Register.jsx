@@ -15,6 +15,7 @@ const Register = () => {
         const pass = form.get("pass");
         // const terms = form.get("terms");
         userRegister(email, pass);
+
     }
     return (
         <div className="flex justify-center items-center h-[80vh] w-11/12 mx-auto">

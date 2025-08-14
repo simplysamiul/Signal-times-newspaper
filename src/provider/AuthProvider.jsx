@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, signInWithPopup, GithubAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword   } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
+import { toast } from "react-toastify";
 
 
 const AuthContext = createContext(null);
@@ -10,8 +11,6 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     // loading state
     const [loading, setLoading] = useState(false);
-    // error message state
-    const [error, setError] = useState(null);
     // provider list
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -21,7 +20,8 @@ const AuthProvider = ({ children }) => {
         signInWithPopup(auth, googleProvider)
         .then(res => {
             setUser(res.user)
-        }).catch((err) => setError(err.message))
+            toast.success("Login Successfully ....!!")
+        }).catch((err) => toast.error(err.message))
     };
 
     // sign in with github
@@ -29,7 +29,8 @@ const AuthProvider = ({ children }) => {
         signInWithPopup(auth, githubProvider)
         .then((res) => {
             setUser(res.user)
-        }).catch(err => setError(err.message))
+            toast.success("Login Successfully ....!!")
+        }).catch(err => toast.error(err.message))
     };
     
     // register user using email and pass
@@ -39,7 +40,8 @@ const AuthProvider = ({ children }) => {
         .then((res) => {
             setUser(res.user);
             setLoading(false);
-        }).catch((err) => setError(err.message))
+            toast.success("Register Successfully ....!!")
+        }).catch((err) => toast.error(err.message))
     };
 
     // user sign in with gmail and pass
@@ -49,7 +51,8 @@ const AuthProvider = ({ children }) => {
         .then((res) => {
             setUser(res.user)
             setLoading(false)
-        }).catch(err => setError(err.message))
+            toast.success("Login Successfully ....!!")
+        }).catch(err => toast.error(err.message))
     }
 
     // signout function
@@ -57,7 +60,7 @@ const AuthProvider = ({ children }) => {
         signOut(auth)
         .then(() => {
             setUser(null)
-        }).catch(err => setError(err.message))
+        }).catch(err => toast.error(err.message))
     };
 
     // context value
@@ -68,7 +71,6 @@ const AuthProvider = ({ children }) => {
         userLogin,
         logOut,
         loading,
-        error,
         user
     };
 
