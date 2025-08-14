@@ -7,15 +7,15 @@ const SocialAccount = () => {
         <div className="my-12">
             <h2 className="mb-3 text-xl font-bold">Find Us On</h2>
             <div className="join join-vertical w-full">
-                <button className="btn join-item justify-start py-6">
+                <button className="btn join-item justify-start py-6 border-gray-300">
                     <img className="w-6" src={facebookIcon} alt="Facebook Icon" />
                     <p>Facebook</p>
                 </button>
-                <button className="btn join-item justify-start py-6">
+                <button className="btn join-item justify-start py-6 border-gray-300">
                     <img className="w-6" src={XIcon} alt="X Icon" />
                     <p>X Twitter</p>
                 </button>
-                <button className="btn join-item justify-start py-6">
+                <button className="btn join-item justify-start py-6 border-gray-300">
                      <img className="w-6" src={instragramIcon} alt="instragram Icon" />
                     <p>Instragram</p>
                 </button>
