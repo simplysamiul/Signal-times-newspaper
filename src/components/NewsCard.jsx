@@ -2,6 +2,7 @@ import moment from "moment";
 import { useState } from "react";
 import { CiBookmark, CiShare2 } from "react-icons/ci";
 import { FaEye, FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
     // expand text state
@@ -29,7 +30,7 @@ const NewsCard = ({ news }) => {
 
                 {/* news title */}
                 <h2 className="text-2xl font-bold mt-6">{title}</h2>
-                <img className="w-full my-4" src={image_url} alt={title} />
+                <Link to={`/news/${ _id}`}><img className="w-full my-4" src={image_url} alt={title} /></Link>
                 {/* news details */}
                 <p className="text-gray-500 mb-6"> {isExpand ? details : details.slice(0, 360)} ...
                     {!isExpand ? <button onClick={() => setIsExpand(true)} className="font-semibold text-[#ff6900] cursor-pointer">Read More</button>
