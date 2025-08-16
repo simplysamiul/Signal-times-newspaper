@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 
 const Register = () => {
     const {userRegister, loading} = useContext(AuthContext);
+    console.log(loading);
     const handleRegisterForm = (e) => {
         e.preventDefault();
         // get form data
@@ -15,8 +16,7 @@ const Register = () => {
         const pass = form.get("pass");
         // const terms = form.get("terms");
         userRegister(email, pass);
-
-    }
+    };
     return (
         <div className="flex justify-center items-center h-[80vh] w-11/12 mx-auto">
             <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-">

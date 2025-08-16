@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
     // user state
     const [user, setUser] = useState(null);
     // loading state
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     // provider list
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -39,18 +39,19 @@ const AuthProvider = ({ children }) => {
         createUserWithEmailAndPassword(auth, email, pass)
         .then((res) => {
             setUser(res.user);
-            setLoading(false);
             toast.success("Register Successfully ....!!")
+            setLoading(false);
         }).catch((err) => toast.error(err.message))
     };
 
     // user sign in with gmail and pass
-    const userLogin = (email, pass) => {
+    const userLogin = (email, pass, e) => {
         setLoading(true);
         signInWithEmailAndPassword(auth, email, pass)
         .then((res) => {
             setUser(res.user)
             setLoading(false)
+            e.target.reset()
             toast.success("Login Successfully ....!!")
         }).catch(err => toast.error(err.message))
     }
@@ -76,6 +77,7 @@ const AuthProvider = ({ children }) => {
 
     // user login observer
     useEffect(() => {
+            setLoading(true);
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setLoading(false);
@@ -83,7 +85,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             unSubscribe();
         }
-    });
+    },[]);
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
