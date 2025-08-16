@@ -1,11 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-import profileImg from '../assets/user.png';
 import NewsCategory from "./shared/NewsCategory";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import profileImg from '../assets/user.png';
 
 const Navbar = ({ newsCategory }) => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -29,10 +29,10 @@ const Navbar = ({ newsCategory }) => {
             </div>
             <div className="navbar-end flex items-center gap-3">
                 <div>
-                    <img className="w-8" src={profileImg} alt="User Profile Img" />
+                   {user && <img className="w-8 rounded-full" src={`${user.photoURL ? user.photoURL : profileImg}`} alt="User Profile Img" />}
                 </div>
                 {!user && <Link to="/auth/login"><button className="btn bg-gray-700 text-white">Login</button></Link>}
-                {user && <button className="btn bg-gray-700 text-white">Log Out</button>}
+                {user && <button onClick={logOut} className="btn bg-gray-700 text-white">Log Out</button>}
             </div>
         </div>
     );
