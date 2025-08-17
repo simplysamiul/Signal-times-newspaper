@@ -4,12 +4,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAXWXZv7VcHtLmBft6SxS-pEMOo0hXreC8",
-  authDomain: "signal-news-auth.firebaseapp.com",
-  projectId: "signal-news-auth",
-  storageBucket: "signal-news-auth.firebasestorage.app",
-  messagingSenderId: "687756993739",
-  appId: "1:687756993739:web:2f4dab316ab04b2725e74e"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase

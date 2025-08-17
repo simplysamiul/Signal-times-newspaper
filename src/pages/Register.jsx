@@ -5,7 +5,6 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
     const {userRegister, loading} = useContext(AuthContext);
-    console.log(loading);
     const handleRegisterForm = (e) => {
         e.preventDefault();
         // get form data

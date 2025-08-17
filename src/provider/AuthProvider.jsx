@@ -40,20 +40,22 @@ const AuthProvider = ({ children }) => {
         .then((res) => {
             setUser(res.user);
             toast.success("Register Successfully ....!!")
+        }).catch((err) => {
             setLoading(false);
-        }).catch((err) => toast.error(err.message))
+            toast.error(err.message)})
     };
 
     // user sign in with gmail and pass
-    const userLogin = (email, pass, e) => {
+    const userLogin = (email, pass) => {
         setLoading(true);
         signInWithEmailAndPassword(auth, email, pass)
         .then((res) => {
             setUser(res.user)
-            setLoading(false)
-            e.target.reset()
+            
             toast.success("Login Successfully ....!!")
-        }).catch(err => toast.error(err.message))
+        }).catch(err => {
+            setLoading(false);
+            toast.error(err.message)})
     }
 
     // signout function
@@ -77,7 +79,6 @@ const AuthProvider = ({ children }) => {
 
     // user login observer
     useEffect(() => {
-            setLoading(true);
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setLoading(false);

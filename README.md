@@ -1,12 +1,23 @@
-# React + Vite
+# 📰 Signal News  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Signal News is a modern news platform built with **React.js** and **Firebase**, providing real-time news articles with authentication and user-friendly design.  
 
-Currently, two official plugins are available:
+## 📌 Features  
+- ✅ User Authentication with Firebase (Email/Password + Google/GitHub)  
+- ✅ Responsive UI with **Tailwind CSS** + **DaisyUI**  
+- ✅ Dynamic routing using **React Router DOM**  
+- ✅ Read More / Read Less functionality for articles  
+- ✅ Star Ratings for news using `react-simple-star-rating`  
+- ✅ Moment.js integration for clean date formatting  
+- ✅ Secure hosting with **Firebase Hosting**  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🖥️ Live Demo  
+🔗 [Visit Signal News](https://signal-news-auth.web.app)  
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used  
+- **React.js**  
+- **Tailwind CSS / DaisyUI**  
+- **Firebase (Auth + Hosting)**  
+- **React Router DOM**  
+- **Moment.js**  
+- **React Icons**  

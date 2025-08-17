@@ -15,9 +15,8 @@ const Login = () => {
         const pass = form.get("pass");
 
         // call login function
-        userLogin(email, pass, e);
-        // e.target.reset();
-    }
+        userLogin(email, pass);
+    };
     return (
         <div className="flex justify-center items-center h-[80vh] w-11/12 mx-auto">
             <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-">
